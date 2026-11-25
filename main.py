@@ -1,7 +1,4 @@
-"""One Line, One Chill — one-sentence horror entry.
-
-Writes the horror line to /output/entry.txt when run.
-"""
+"""Write the one-chill entry line to the output file."""
 
 import os
 
@@ -11,14 +8,12 @@ LINE = (
 )
 
 
-def main() -> None:
-    out_dir = "/output"
-    os.makedirs(out_dir, exist_ok=True)
-    path = os.path.join(out_dir, "entry.txt")
-    with open(path, "w", encoding="utf-8") as fh:
-        fh.write(LINE + "\n")
-    print(f"wrote {len(LINE)} chars to {path}")
+def emit() -> None:
+    folder = "/output"
+    os.makedirs(folder, exist_ok=True)
+    with open(os.path.join(folder, "entry.txt"), "w", encoding="utf-8") as handle:
+        handle.write(LINE)
 
 
 if __name__ == "__main__":
-    main()
+    emit()
